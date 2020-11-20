@@ -1,11 +1,11 @@
 const path = require('path')
 
-function resolve(dir) {
+const resolve = dir => {
   return path.join(__dirname, dir)
 }
 
 // 设置别名
-function setResolve(config) {
+const setResolve = config => {
   config.resolve.alias
     .set('@', resolve('../src'))
     .set('@c', resolve('../src/components'))
@@ -21,7 +21,7 @@ const setTitle = config => {
     })
 }
 
-function chainWebpack(config) {
+const chainWebpack = config => {
   setResolve(config)
   setTitle(config)
 }

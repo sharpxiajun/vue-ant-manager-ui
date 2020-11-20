@@ -20,7 +20,7 @@
       </a-menu>
     </a-layout-header>
     <a-layout>
-      <a-layout-sider width="200" style="background: #fff">
+      <a-layout-sider width="200">
         <a-menu
           mode="inline"
           :default-selected-keys="['1']"

@@ -2,7 +2,7 @@
  * @Author: sharpxiajun 
  * @Date: 2020-11-20 20:03:42 
  * @Last Modified by: sharpxiajun
- * @Last Modified time: 2020-11-20 21:02:38
+ * @Last Modified time: 2020-11-20 22:32:01
  */
 const {
   chainWebpack,
@@ -45,7 +45,6 @@ module.exports = {
       preProcessor: 'less',
       patterns: [
         path.resolve(__dirname, './node_modules/ant-design-vue/es/style/themes/default.less')
-        // path.resolve(__dirname, './src/assets/css/mixins.less')
       ]
     }
   }
