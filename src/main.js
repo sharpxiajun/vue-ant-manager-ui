@@ -1,3 +1,9 @@
+/*
+ * @Author: sharpxiajun 
+ * @Date: 2020-11-20 20:04:50 
+ * @Last Modified by:   sharpxiajun 
+ * @Last Modified time: 2020-11-20 20:04:50 
+ */
 import Vue from 'vue'
 import './regsiter-components'
 import router from './router'

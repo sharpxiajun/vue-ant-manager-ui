@@ -1,5 +1,12 @@
+/*
+ * @Author: sharpxiajun 
+ * @Date: 2020-11-20 20:03:42 
+ * @Last Modified by: sharpxiajun
+ * @Last Modified time: 2020-11-20 21:02:38
+ */
 const {
   chainWebpack,
+  styleVars,
   config
 } = require('./build/')
 
@@ -28,7 +35,7 @@ module.exports = {
   css: {
     loaderOptions: {
       less: {
-        modifyVars: {},
+        modifyVars: styleVars,
         javascriptEnabled: true
       }
     }
