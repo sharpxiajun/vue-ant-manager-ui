@@ -1,29 +1,21 @@
 <template>
   <div id="app">
-    <img src="./assets/logo.png">
-    <a-button type="primary">Button></a-button>
+    <div class="mainWidth">
+      <a-button type="primary">Button</a-button>
+      <a-button type="danger">Danger</a-button>
+    </div>
   </div>
 </template>
 
 <style lang="less">
 #app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-}
-
-#nav {
-  padding: 30px;
-
-  a {
-    font-weight: bold;
-    color: #2c3e50;
-
-    &.router-link-exact-active {
-      color: #42b983;
-    }
+  .border-test {
+    border: 1px red dashed;
+  }
+  .mainWidth {
+    width: 1920px;
+    height: 100%;
+    display: flex;
   }
 }
 </style>
