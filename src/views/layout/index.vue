@@ -29,7 +29,7 @@
         >
           <a-sub-menu key="sub1">
             <span slot="title"><a-icon type="user" />subnav 1</span>
-            <a-menu-item key="1">
+            <a-menu-item key="1" :style="{border: '1px solid #536566'}">
               option1
             </a-menu-item>
             <a-menu-item key="2">
