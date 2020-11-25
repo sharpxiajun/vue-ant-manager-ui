@@ -84,13 +84,15 @@
       
     },
     mounted() {
-      console.log('initMenus:', this.initMenus)
     },
     methods: {
       menuClick(menu) {
-        this.$router.push(menu.key)
-        this.topActiveMenu = menu.keyPath
-        this.leftActiveMenu = menu.keyPath
+        console.log(this.$router, this.$route)
+        if (this.$route.fullPath !== menu.key) {
+          this.$router.push(menu.key)
+          this.topActiveMenu = menu.keyPath
+          this.leftActiveMenu = menu.keyPath
+        }
       }
     }
   }

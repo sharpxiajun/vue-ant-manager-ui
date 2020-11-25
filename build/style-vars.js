@@ -4,12 +4,12 @@
  * @Last Modified by: sharpxiajun
  * @Last Modified time: 2020-11-We 10:16:52
  */
+const styleVars = {
+  '@blue-6': '#1890ff',
+  '@white': '#fff'
+}
 module.exports = {
-  // 'body-background': 'transparent',
-  // 'text-color': '#89d7ff',
-
-  // 'layout-body-background': 'rgb(0, 43, 99)',
-  // 'layout-header-background': '#003A84',
-
-  // 'menu-bg': '#003A84'
+  'menu-dark-item-active-bg': styleVars['@blue-6'],
+  'menu-dark-item-hover-bg': styleVars['@blue-6'],
+  'menu-highlight-color': styleVars['@white'],
 }
