@@ -4,7 +4,7 @@
       <div class="logo">
         <img :src="require('@/assets/img/skin-blue/logo.png')"/>
         <div class="title">
-          Vue Ant Design Manager UI
+          <span>Vue AntD UI</span>
         </div>
       </div>
       <a-menu
@@ -96,7 +96,7 @@
   }
 </script>
 
-<style lang="less">
+<style lang="less" scoped>
   .layout {
     .logo {
       width: 200px;
@@ -104,14 +104,22 @@
       line-height: 60px;
       background-color: transparent;
       float: left;
+      align-items: center;
+      margin-left: 10px;
+      display: flex;
       img {
         width: 40px;
-        float: left;
+        height: 40px;
       }
       .title {
-        width: 80px;
-        line-height: 64px;
-        float: left;
+        width: 150px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        span {
+          color: #fff;
+          font-size: 24px;
+        }
       }
     }
   }
