@@ -1,0 +1,120 @@
+.fadeinleft-enter-active,
+.fadeinright-enter-active,
+.fadeinleft-leave-active,
+.fadeinright-leave-active {
+  opacity: 1;
+  transform: translateZ(0);
+  transition: all 0.3s ease-in-out;
+}
+
+// .fadeinleft-leave-to,
+.fadeinleft-enter {
+  opacity: 0;
+  transform: translate3d(-100%, 0, 0);
+}
+
+// faderight 用于左边有菜单时防止过渡的时候，组件覆盖到了菜单上面
+.fadeinleft-leave-to,
+.fadeinright-enter,
+.fadeinright-leave-to {
+  opacity: 0;
+  transform: translate3d(100%, 0, 0);
+}
+
+.fadein-enter-active,
+.fadein-leave-active {
+  opacity: 1;
+  transition: all 0.3s ease-in-out;
+}
+
+.fadein-enter,
+.fadein-leave-to {
+  opacity: 0;
+}
+
+.el-fade-in-enter,
+.el-fade-in-leave-active,
+.el-fade-in-linear-enter,
+.el-fade-in-linear-leave,
+.el-fade-in-linear-leave-active,
+.fade-in-linear-enter,
+.fade-in-linear-leave,
+.fade-in-linear-leave-active {
+	opacity: 0
+}
+
+.el-zoom-in-center-enter,
+.el-zoom-in-center-leave-active {
+	opacity: 0;
+	transform: scaleX(0)
+}
+
+.el-zoom-in-top-enter,
+.el-zoom-in-top-leave-active {
+	opacity: 0;
+	transform: scaleY(0)
+}
+
+.el-zoom-in-bottom-enter,
+.el-zoom-in-bottom-leave-active {
+	opacity: 0;
+	transform: scaleY(0)
+}
+
+.el-zoom-in-left-enter,
+.el-zoom-in-left-leave-active {
+	opacity: 0;
+	transform: scale(.45,.45)
+}
+
+.fade-in-linear-enter-active,
+.fade-in-linear-leave-active {
+	transition: opacity .2s linear
+}
+
+.el-fade-in-linear-enter-active,
+.el-fade-in-linear-leave-active {
+	transition: opacity .2s linear
+}
+
+.el-fade-in-enter-active,
+.el-fade-in-leave-active {
+	transition: all .3s cubic-bezier(.55,0,.1,1)
+}
+
+.el-zoom-in-center-enter-active,
+.el-zoom-in-center-leave-active {
+	transition: all .3s cubic-bezier(.55,0,.1,1)
+}
+
+
+.el-zoom-in-top-enter-active,
+.el-zoom-in-top-leave-active {
+	opacity: 1;
+	transform: scaleY(1);
+	transition: opacity .3s cubic-bezier(.23,1,.32,1),-webkit-transform .3s cubic-bezier(.23,1,.32,1);
+	transition: transform .3s cubic-bezier(.23,1,.32,1),opacity .3s cubic-bezier(.23,1,.32,1);
+	transform-origin: center top
+}
+
+
+
+.el-zoom-in-bottom-enter-active,
+.el-zoom-in-bottom-leave-active {
+	opacity: 1;
+	transform: scaleY(1);
+	transition: opacity .3s cubic-bezier(.23,1,.32,1),-webkit-transform .3s cubic-bezier(.23,1,.32,1);
+	transition: transform .3s cubic-bezier(.23,1,.32,1),opacity .3s cubic-bezier(.23,1,.32,1);
+	transform-origin: center bottom
+}
+
+
+
+.el-zoom-in-left-enter-active,
+.el-zoom-in-left-leave-active {
+	opacity: 1;
+	transform: scale(1,1);
+	transition: opacity .3s cubic-bezier(.23,1,.32,1),-webkit-transform .3s cubic-bezier(.23,1,.32,1);
+	transition: transform .3s cubic-bezier(.23,1,.32,1),opacity .3s cubic-bezier(.23,1,.32,1);
+	transform-origin: top left
+}
