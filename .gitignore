@@ -3,6 +3,8 @@ node_modules
 /dist
 package-lock.json
 
+*.docx
+
 
 # local env files
 .env.local

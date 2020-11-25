@@ -11,5 +11,4 @@ const styleVars = {
 module.exports = {
   'menu-dark-item-active-bg': styleVars['@blue-6'],
   'menu-dark-item-hover-bg': styleVars['@blue-6'],
-  'menu-highlight-color': styleVars['@white'],
 }

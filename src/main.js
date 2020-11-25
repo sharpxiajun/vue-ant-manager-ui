@@ -8,6 +8,8 @@ import Vue from 'vue'
 import './regsiter-components'
 import router from './router'
 import store from './store'
+import VueTouchRipple from 'vue-touch-ripple'
+import 'vue-touch-ripple/dist/vue-touch-ripple.css'
 
 import styleVars from '../build/style-vars'
 
@@ -16,6 +18,8 @@ import '@/assets/less/skin-blue/transition.less'
 
 Vue.config.productionTip = false
 Vue.prototype.$styleVars = styleVars
+
+Vue.use(VueTouchRipple)
 
 new Vue({
   router,
