@@ -2,8 +2,12 @@
  * @Author: sharpxiajun 
  * @Date: 2020-11-20 20:03:31 
  * @Last Modified by: sharpxiajun
- * @Last Modified time: 2021-02-03 22:15:53
+ * @Last Modified time: 2021-02-04 09:17:46
  */
+const styleVars = {
+  '@blue-6': '#1890ff',
+  '@white': '#fff'
+}
 module.exports = {
   deep: "~'>>>'",
   // deep: '~"/deep/"',
@@ -66,5 +70,5 @@ module.exports = {
   transition: 'all 0.3s linear',
   red: '#f5222d',
   yellow: '#faad14',
-  green: '#52c41a',
+  green: '#52c41a'
 }
