@@ -2,7 +2,7 @@
  * @Author: sharpxiajun 
  * @Date: 2020-11-20 20:04:50 
  * @Last Modified by: sharpxiajun
- * @Last Modified time: 2021-02-03 22:16:36
+ * @Last Modified time: 2021-02-04 15:57:16
  */
 import Vue from 'vue'
 import './regsiter-components'
@@ -39,6 +39,9 @@ Vue.prototype.$config = config
 new Vue({
   router,
   store,
+  mounted() {
+    store.dispatch('getUserinfo')
+  },
   render() {
     return (
       <a-config-provider 

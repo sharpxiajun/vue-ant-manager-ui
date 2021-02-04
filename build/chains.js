@@ -23,7 +23,7 @@ const setTitle = config => {
     .plugin('html')
     .tap(args => {
       log(chalk.red(`setTitle:${args}`))
-      args[0].title= 'Vue Ant Design 管理系统框架'
+      args[0].title= 'AntV UI Manager'
       return args
     })
 }

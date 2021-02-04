@@ -1,3 +1,9 @@
+/*
+ * @Author: sharpxiajun 
+ * @Date: 2021-02-04 14:21:00 
+ * @Last Modified by: sharpxiajun
+ * @Last Modified time: 2021-02-04 14:21:27
+ */
 import adus from './adus'
 import antvG2 from './antvG2'
 import antvG6 from './antvG6'
@@ -29,5 +35,38 @@ export default [
       antvG2,
       antvG6
     ]
+  },
+  {
+    path: '/error/500',
+    name: 'error_500',
+    meta: {
+      hideInMenu: true
+    },
+    component: _ =>
+      import(
+        /* webpackChunkName: "error-page-500" */ '@/views/error-page/500.vue'
+      )
+  },
+  {
+    path: '/error/401',
+    name: 'error_401',
+    meta: {
+      hideInMenu: true
+    },
+    component: _ =>
+      import(
+        /* webpackChunkName: "error-page-401" */ '@/views/error-page/401.vue'
+      )
+  },
+  {
+    path: '*',
+    name: 'error_404',
+    meta: {
+      hideInMenu: true
+    },
+    component: _ =>
+      import(
+        /* webpackChunkName: "error-page-404" */ '@/views/error-page/404.vue'
+      )
   }
 ]

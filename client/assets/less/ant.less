@@ -552,3 +552,34 @@
   margin-bottom: -20px !important;
   padding-bottom: 20px !important;
 }
+
+.@{ant-prefix}-menu {
+  &-item {
+    a {
+      font-size: 14px;
+      .anticon {
+        font-size: 16px;
+        color: @shadow-secondary-text;
+      }
+    }
+  }
+}
+
+.@{ant-prefix}-menu-submenu {
+  &-title {
+    span {
+      .anticon {
+        font-size: 16px;
+        color: @shadow-secondary-text;
+      }
+      span {
+        font-size: 14px;
+        color: @shadow-secondary-text;
+      }
+    }
+  }
+}
+
+.@{ant-prefix}-menu-horizontal {
+  background: @layout-header-background;
+}
