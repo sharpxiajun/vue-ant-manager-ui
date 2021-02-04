@@ -2,7 +2,7 @@
  * @Author: sharpxiajun 
  * @Date: 2021-02-03 18:34:47 
  * @Last Modified by: sharpxiajun
- * @Last Modified time: 2021-02-04 16:27:36
+ * @Last Modified time: 2021-02-04 16:31:40
  */
 <template>
   <a-layout class="layout">
@@ -149,7 +149,7 @@
     name: 'layout',
     data() {
       return {
-        collapsed: false,
+        collapsed: true,
         hasMenuGroup: false,
         selectedKeys: []
       }

@@ -14,16 +14,6 @@ export default {
   component: WrapperView,
   children: [
     {
-      path: '/adus/add',
-      name: 'add',
-      meta: {
-        name: '新增操作',
-        icon: 'icon-yibiaoban1',
-        active: 'shadow-orange'
-      },
-      component: adusAdd
-    },
-    {
       path: '/adus/search',
       name: 'search',
       meta: {
@@ -32,6 +22,16 @@ export default {
         active: 'shadow-orange'
       },
       component: adusSearch
+    },
+    {
+      path: '/adus/add',
+      name: 'add',
+      meta: {
+        name: '新增操作',
+        icon: 'icon-yibiaoban1',
+        active: 'shadow-orange'
+      },
+      component: adusAdd
     },
     {
       path: '/adus/searchForDetail',
