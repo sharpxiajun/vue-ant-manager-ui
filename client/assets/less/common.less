@@ -1,0 +1,241 @@
+@import './var.less';
+@import './mixins.less';
+
+@font-face {
+  font-family: "Alibaba-PuHuiTi-Regular";
+  font-style: normal;
+  font-weight: normal;
+  src: url("../fonts/Alibaba-PuHuiTi-Regular.ttf") format("truetype"), url("../fonts/Alibaba-PuHuiTi-Regular.woff") format("woff"), url("../fonts/Alibaba-PuHuiTi-Regular.svg") format("svg");
+}
+
+body {
+  overflow-y: hidden;
+  overflow-x: auto;
+  // overflow: hidden;
+}
+
+.pageBox {
+  margin-top: 10px;
+  display: flex;
+  &>ul {
+    margin-left: auto;
+    span {
+      color: @blue-4;
+    }
+  }
+}
+
+.regTip {
+  color: @gray5;
+  font-size: 12px;
+  line-height: 18px;
+}
+
+.fl {
+  float: left;
+}
+
+.fr {
+  float: right;
+}
+
+.font-12,
+.font-12.iconfont {
+  font-size: 12px;
+}
+
+.font-14,
+.font-14.iconfont {
+  font-size: 14px;
+}
+
+.font-16,
+.font-16.iconfont {
+  font-size: 16px;
+}
+
+.font-18,
+.font-18.iconfont {
+  font-size: 18px;
+}
+
+.font-20,
+.font-20.iconfont {
+  font-size: 20px;
+}
+
+.font-22,
+.font-22.iconfont {
+  font-size: 22px;
+}
+
+.font-30,
+.font-30.iconfont {
+  font-size: 30px;
+}
+
+.text-center {
+  text-align: center;
+}
+
+.text-right {
+  text-align: right;
+}
+
+.table-layout {
+  display: table;
+}
+
+.table-cell {
+  display: table-cell;
+}
+
+// 垂直居中 父级需要添加 class="table-layout"
+.v-center {
+  display: table-cell;
+  vertical-align: middle;
+}
+
+.flex-layout {
+  display: flex;
+}
+
+.flex-column {
+  display: flex;
+  flex-direction: column;
+  height: 100%;
+}
+
+.space-between {
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+}
+
+.flex-center {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.flex-center-h {
+  display: flex;
+  justify-content: center;
+}
+
+.flex-center-v {
+  display: flex;
+  align-items: center;
+}
+
+.flex-wrap {
+  display: flex;
+  flex-wrap: wrap;
+}
+
+.text-ellipsis {
+  overflow: hidden;
+  white-space: nowrap;
+  text-overflow: ellipsis;
+}
+
+.clearfix {
+  zoom: 1;
+
+  &::before,
+  &::after {
+    content: '';
+    display: table;
+  }
+
+  &::after {
+    clear: both;
+  }
+}
+
+// 设置滚动条样式
+* {
+  .scrollbar(@gray4);
+}
+
+// 深色背景的滚动条样式
+.dark-scrollbar {
+  .scrollbar(@gray8);
+}
+
+// 生成.flex-1: {flex: 1} 到 .flex-24: {flex: 24}
+each(range(24), {
+    .flex-@{value} {
+      flex: @value;
+    }
+  }
+
+);
+
+// 设置不同场景的文字颜色
+.scene(deep);
+.scene(shadow);
+
+// 设置盒模型的margin, padding的值
+.boxModel(p, padding);
+.boxModel(pl, padding-left);
+.boxModel(pr, padding-right);
+.boxModel(pt, padding-top);
+.boxModel(pb, padding-bottom);
+.boxModel(m, margin);
+.boxModel(ml, margin-left);
+.boxModel(mr, margin-right);
+.boxModel(mt, margin-top);
+.boxModel(mb, margin-bottom);
+
+.block-disabled {
+  opacity: 0.5;
+}
+
+.block {
+  width: 100%;
+  height: 100%;
+}
+
+.label-dark {
+  font-size: 12px;
+  line-height: 30px;
+  color: @gray6;
+
+  &-disabled {
+    opacity: 0.5;
+    color: @gray6;
+    font-size: 12px;
+  }
+}
+
+.dark-color {
+  color: @gray6;
+  font-size: 12px;
+  margin-left: 5px;
+}
+
+.label-shadow {
+  color: @deep-primary;
+}
+
+.v-touch-ripple {
+  width: 100%;
+}
+
+.tip {
+  line-height: 20px;
+  color: @gray4;
+}
+
+// .light {
+//   p, .anticon {
+//     color: @deep-primary;
+//   }
+// }
+
+// .dark {
+//   p, .anticon {
+//     color: @shadow-primary;
+//   }
+// }

@@ -1,0 +1,82 @@
+.chartDataItem() {
+  display: flex;
+  position: relative;
+  align-items: center;
+  // justify-content: space-between;
+  height: 24px;
+  padding-right: 6px;
+  text-align: left;
+
+  &.sorting {
+    opacity: 0.4;
+    // height: 20px;
+    overflow: hidden;
+  }
+
+  &:hover {
+    .item-control {
+      display: inline-block;
+      flex: auto;
+      text-align: right;
+    }
+  }
+
+  .item-label {
+    display: inline-block;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    white-space: nowrap;
+    padding-left: 2px;
+    font-size: 12px;
+  }
+
+  .item-control {
+    display: none;
+    flex: auto;
+    text-align: right;
+    white-space: nowrap;
+    line-height: 1;
+
+    .anticon {
+      padding-left: 3px;
+      color: @gray5;
+      font-size: 16px;
+      line-height: 1;
+      cursor: pointer;
+
+      &.highlight,
+      &.highlight:hover {
+        color: @highlight;
+      }
+
+      &:hover {
+        color: @gray8;
+      }
+    }
+  }
+
+  .item-icon {
+    padding: 0 4px;
+    font-size: 14px;
+  }
+  .item-sort-icon {
+    color: @gray5;
+    padding: 0 3px;
+  }
+  .mixin(@color) {
+    border: 1px solid @color;
+    background: fade(@color, 10%);
+    .item-icon {
+      color: @color;
+    }
+  }
+
+  &.blue {
+    // .mixin(fade(@primary-color, 70%));
+    .mixin(@chart-data-blue);
+  }
+
+  &.green {
+    .mixin(@success);
+  }
+}

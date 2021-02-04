@@ -9,7 +9,9 @@ export default [
   {
     path: '/',
     name: 'index',
-    meta: {},
+    meta: {
+      name: 'root'
+    },
     redirect: '/home',
     component: Layout,
     children: [
@@ -17,7 +19,9 @@ export default [
         path: '/home',
         name: 'home',
         meta: {
-          name: '首页'
+          name: '首页',
+          icon: 'icon-home1',
+          active: 'shadow-blue'
         },
         component: Home
       },

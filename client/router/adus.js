@@ -7,7 +7,9 @@ export default {
   path: '/adus',
   name: 'adus',
   meta: {
-    name: '增删改查'
+    name: '增删改查',
+    icon: 'icon-yibiaoban1',
+    active: 'shadow-orange'
   },
   component: WrapperView,
   children: [
@@ -15,7 +17,9 @@ export default {
       path: '/adus/add',
       name: 'add',
       meta: {
-        name: '新增操作'
+        name: '新增操作',
+        icon: 'icon-yibiaoban1',
+        active: 'shadow-orange'
       },
       component: adusAdd
     },
@@ -23,7 +27,9 @@ export default {
       path: '/adus/search',
       name: 'search',
       meta: {
-        name: '查询操作'
+        name: '查询操作',
+        icon: 'icon-yibiaoban1',
+        active: 'shadow-orange'
       },
       component: adusSearch
     },
@@ -31,7 +37,9 @@ export default {
       path: '/adus/searchForDetail',
       name: 'searchForDetail',
       meta: {
-        name: '列表详情'
+        name: '列表详情',
+        icon: 'icon-yibiaoban1',
+        active: 'shadow-orange'
       },
       component: adusSearchForDetail
     }

@@ -1,0 +1,554 @@
+@import './var.less';
+@import './mixins.less';
+
+@dark-color: @shadow-primary;
+
+// <a-button dark>
+.@{ant-prefix}-input,
+.@{ant-prefix}-select {
+  font-size: 12px;
+}
+
+.@{ant-prefix}-btn[dark] {
+  background: @layout-header-background;
+  border-color: @shadow-border;
+  color: @shadow-primary;
+
+  &:hover {
+    background: @layout-trigger-background;
+  }
+}
+
+.@{ant-prefix}-btn,
+.@{ant-prefix}-btn.@{ant-prefix}-btn-sm {
+  font-size: 12px;
+  // border-radius: 0;
+}
+
+.@{ant-prefix}-form {
+  .@{ant-prefix}-form-item {
+    margin-bottom: 16px;
+    &-control.has-error {
+      .@{ant-prefix}-input[dark] {
+        background-color: @layout-header-background;
+      }
+    }
+
+    &.form-item-nobottom {
+      margin-bottom: 0;
+    }
+  }
+
+  .checkbox-group {
+    .@{ant-prefix}-form-item {
+      &-control {
+        line-height: 30px;
+      }
+    }
+  }
+
+  &[dark],
+  &-dark {
+    .@{ant-prefix}-form-item {
+      &-label label {
+        color: @gray6;
+        transition: @transition;
+      }
+
+      &.form-item-disabled {
+        cursor: not-allowed;
+
+        .@{ant-prefix}-form-item-label label {
+          // color: @gray4;
+          opacity: 0.5;
+        }
+      }
+    }
+  }
+
+  & &-explain {
+    font-size: 12px;
+  }
+}
+
+.@{ant-prefix}-form-explain {
+  font-size: 12px;
+}
+
+.form-item-disabled {
+  position: relative;
+
+  .@{ant-prefix}-form-item-label label {
+    color: @gray4;
+  }
+}
+
+.@{ant-prefix}select-combobox .@{ant-prefix}-select-arrow {
+  display: none;
+}
+
+.@{ant-prefix}-select-selection-selected-value {
+  display: flex;
+  align-items: center;
+  width: calc(100% - 10px);
+  height: 30px;
+
+  .anticon {
+    position: relative;
+    top: 2px;
+  }
+}
+
+// <a-select class="ant-select-dark"> | <a-select dark>
+.@{ant-prefix}-select-dropdown,
+.@{ant-prefix}-dropdown-menu,
+.@{ant-prefix}-dropdown {
+  &&[dark],
+  &&-dark {
+    color: @dark-color;
+    background-color: @layout-header-background;
+    .@{ant-prefix}-dropdown-menu {
+      color: @dark-color;
+      background-color: @layout-header-background;
+    }
+
+    .@{ant-prefix}-select-dropdown-menu-item,
+    .@{ant-prefix}-dropdown-menu-item,
+    .@{ant-prefix}-dropdown-menu-item > a {
+      color: @dark-color;
+
+      &:hover {
+        background-color: @input-dark-bg-hover;
+      }
+
+      &-active,
+      &.is-active,
+      &-selected,
+      &-selected:hover {
+        background-color: @input-dark-bg-active;
+      }
+    }
+
+    .ant-empty-description {
+      color: @gray6;
+    }
+  }
+}
+
+.@{ant-prefix}-radio-group[dark] {
+  .@{ant-prefix}-radio-wrapper {
+    color: @gray5;
+
+    .@{ant-prefix}-radio-checked {
+      .@{ant-prefix}-radio-inner {
+        border-color: @primary-color;
+        background-color: @primary-color;
+
+        &:after {
+          background-color: @gray9;
+        }
+      }
+    }
+
+    .@{ant-prefix}-radio-inner {
+      // background-color: @side-bg;
+      background-color: transparent;
+      border-color: @shadow-border;
+      // opacity: 0.5;
+    }
+
+    .@{ant-prefix}-radio-disabled {
+      opacity: 0.5;
+
+      &.@{ant-prefix}-radio-checked {
+        .@{ant-prefix}-radio-inner {
+          border-color: @primary-color !important;
+        }
+      }
+
+      .@{ant-prefix}-radio-inner {
+        // background-color: @side-bg;
+        // opacity: 0.5;
+      }
+
+      & + span {
+        color: @gray6;
+        opacity: 0.5;
+      }
+    }
+  }
+
+  .@{ant-prefix}-radio-button-wrapper {
+    // background-color: @side-bg;
+    background-color: transparent;
+    border-color: @shadow-border;
+    color: @gray10;
+
+    &:not(:first-child)::before {
+      background-color: @shadow-border;
+    }
+    &-checked {
+      background-color: @primary-color;
+      border-color: @primary-color;
+      &:hover {
+        color: @gray10;
+      }
+    }
+  }
+
+  &.block {
+    width: 100%;
+    display: flex;
+
+    .@{ant-prefix}-radio-button-wrapper {
+      flex: 1;
+      text-align: center;
+    }
+  }
+}
+
+// <a-checkbox class="dark">
+.@{ant-prefix}-checkbox-wrapper.dark {
+  color: @gray6;
+
+  .@{ant-prefix}-checkbox {
+    &-checked {
+      .@{ant-prefix}-checkbox-inner {
+        background: @primary-color;
+        border-color: @primary-color;
+      }
+    }
+    &-inner {
+      background: transparent;
+      border-color: @shadow-border;
+    }
+  }
+
+  &.@{ant-prefix}-checkbox-wrapper-disabled {
+    opacity: @disable-opacity;
+
+    span {
+      color: @gray6;
+    }
+  }
+}
+
+// <a-input dark>
+.@{ant-prefix}-input,
+.@{ant-prefix}-input-number {
+  font-size: 12px;
+
+  &[dark] {
+    background: @layout-header-background;
+    color: @shadow-background;
+    border: none;
+
+    &[disabled] {
+      background: @layout-header-background;
+      color: @shadow-primary;
+      opacity: @disable-opacity;
+
+      &::placeholder {
+        // color: @deep-primary;
+      }
+    }
+    .@{ant-prefix}-input-number-input {
+      color: @shadow-primary;
+    }
+    &::placeholder {
+      // color: @deep-primary;
+      color: @shadow-disable;
+    }
+
+    .@{ant-prefix}-input-number-handler-wrap {
+      border-left-color: @shadow-dividers;
+      background-color: @input-dark-bg;
+      color: @deep-background;
+
+      .@{ant-prefix}-input-number-handler {
+        .anticon {
+          color: @gray4;
+        }
+        &:hover {
+          .anticon {
+            color: @gray8;
+          }
+        }
+        &-down {
+          border-top-color: @shadow-dividers;
+        }
+      }
+    }
+    + .@{ant-prefix}-input-suffix .anticon-close-circle {
+      color: @gray4;
+
+      &:hover {
+        color: @gray7;
+      }
+    }
+  }
+
+  &&-disabled {
+    // color: @gray4;
+  }
+}
+
+// .@{ant-prefix}-table-header {
+//   overflow: hidden !important;
+// }
+
+.@{ant-prefix}-table {
+  .@{ant-prefix}-table-body {
+    // min-height: 200px;
+    overflow-y: auto !important;
+  }
+}
+
+.@{ant-prefix}-table-wrapper[dark] {
+  .@{ant-prefix}-table-thead > tr > th {
+    background-color: transparent;
+    color: @gray5;
+    font-size: 12px;
+  }
+
+  .@{ant-prefix}-table-small {
+    border-color: transparent;
+
+    .@{ant-prefix}-table-content table .@{ant-prefix}-table-thead > tr > th {
+      border-bottom-color: @deep-border;
+    }
+  }
+
+  .@{ant-prefix}-table-thead > tr > th,
+  .@{ant-prefix}-table-tbody > tr > td {
+    border-bottom-color: @deep-border;
+  }
+
+  .@{ant-prefix}-table-thead
+    > tr.@{ant-prefix}-table-row-hover:not(.@{ant-prefix}-table-expanded-row)
+    > td,
+  .@{ant-prefix}-table-tbody
+    > tr.@{ant-prefix}-table-row-hover:not(.@{ant-prefix}-table-expanded-row)
+    > td,
+  .@{ant-prefix}-table-thead
+    > tr:hover:not(.@{ant-prefix}-table-expanded-row)
+    > td,
+  .@{ant-prefix}-table-tbody
+    > tr:hover:not(.@{ant-prefix}-table-expanded-row)
+    > td {
+    background: @deep-border;
+  }
+}
+
+// <a-input drak>
+.@{ant-prefix}-input[dark] {
+  background: @layout-header-background;
+  color: @dark-color;
+  border: none;
+}
+
+// <a-select class="ant-select-dark"> | <a-select dark>
+.@{ant-prefix}-select-dark,
+.@{ant-prefix}-select[dark] {
+  &.@{ant-prefix}-select-disabled {
+    opacity: @disable-opacity;
+  }
+
+  .@{ant-prefix}-select-selection {
+    background-color: @layout-header-background;
+    border: none;
+    color: @dark-color;
+
+    .@{ant-prefix}-select-arrow {
+      color: @dark-color;
+    }
+
+    &__clear {
+      background: @layout-header-background;
+      color: @gray5;
+
+      &:hover {
+        color: @gray7;
+      }
+    }
+  }
+}
+
+.anticon {
+  &.anticon-star {
+    color: @deep-disable;
+    transition: @transition;
+
+    &.star-checked,
+    &.star-checked[dark] {
+      color: @gold-6;
+    }
+  }
+
+  // <a-icon dark>
+  &[dark],
+  &[dark][class^='anticon-'],
+  &[dark][class*=' anticon-'] {
+    color: @shadow-primary;
+  }
+}
+
+// 表格行之间有间距
+.table-border-spacing {
+  .@{ant-prefix}-table {
+    table {
+      border-collapse: separate;
+      border-spacing: 0 5px;
+    }
+
+    tbody {
+      td {
+        background: @gray10;
+      }
+    }
+  }
+
+  .@{ant-prefix}-table-thead
+    > tr
+    > th.@{ant-prefix}-table-column-has-actions.@{ant-prefix}-table-column-has-sorters:hover {
+    background: @geekblue-1;
+  }
+
+  .@{ant-prefix}-table-thead > tr > th,
+  .@{ant-prefix}-table-tbody > tr > td {
+    padding: 7px 16px;
+
+    &.@{ant-prefix}-table-column-sort {
+      background: @blue-1;
+    }
+  }
+
+  .@{ant-prefix}-table-thead > tr > th {
+    height: 40px;
+  }
+  .@{ant-prefix}-table-thead > tr > th .@{ant-prefix}-table-column-sorter {
+    display: inline-block;
+    vertical-align: top;
+  }
+
+  .@{ant-prefix}-table-tbody > tr > td {
+    height: 50px;
+  }
+}
+
+.table-tr-active-border {
+  .@{ant-prefix}-table-tbody > tr.is-active,
+  .@{ant-prefix}-table-tbody > tr:hover {
+    outline: 1px solid @primary-color;
+  }
+}
+
+.@{ant-prefix}-drawer {
+  @head-height: 55px;
+
+  .@{ant-prefix}-drawer-body {
+    height: calc(~'100% - @{head-height}');
+
+    .@{ant-prefix}-form {
+      height: calc(~'100% - 32px');
+      padding-bottom: 15px;
+      overflow: auto;
+    }
+  }
+}
+
+.@{ant-prefix}-spin {
+  width: 100%;
+  height: 100%;
+  // display: flex;
+
+  .@{ant-prefix}-spin-dot {
+    top: 40%;
+    margin-top: -10px;
+  }
+}
+
+.@{ant-prefix}-spin-nested-loading {
+  width: 100%;
+  height: 100%;
+
+  > div > .@{ant-prefix}-spin {
+    max-height: 100%;
+  }
+
+  .@{ant-prefix}-spin-container {
+    width: 100%;
+    height: 100%;
+  }
+}
+
+.@{ant-prefix}-modal-body,
+.@{ant-prefix}-modal-footer {
+  background-color: @gray10;
+}
+
+.popover-dark {
+  &.@{ant-prefix}-popover {
+    .@{ant-prefix}-popover-inner {
+      background: @deep-title;
+
+      .@{ant-prefix}-popover-inner-content {
+        color: @shadow-title;
+      }
+    }
+  }
+
+  .popperArrow(@deep-title);
+}
+
+.input-border-bottom {
+  input {
+    border-top: none;
+    border-left: none;
+    border-right: none;
+    background: transparent;
+
+    &:focus {
+      box-shadow: none;
+    }
+  }
+}
+
+.@{ant-prefix}-popover {
+  &.popover-hide-arrow {
+    .@{ant-prefix}-popover-arrow {
+      display: none;
+    }
+  }
+
+  &.select-popover {
+    padding-top: 0;
+    // transform: translateY(-10px);
+    .@{ant-prefix}-popover-arrow {
+      display: none;
+    }
+    .@{ant-prefix}-popover-inner-content {
+      padding: 0;
+      // margin-top: -3px;
+    }
+  }
+}
+
+.ant-empty,
+.@{ant-prefix}-empty-small {
+  text-align: center;
+}
+
+.@{ant-prefix}-tooltip {
+  font-size: 12px;
+  max-width: 400px !important;
+}
+
+// 清楚固定表头，表头的滚动条
+.@{ant-prefix}-table-fixed-header
+  .@{ant-prefix}-table-scroll
+  .@{ant-prefix}-table-header {
+  overflow: hidden !important;
+  margin-bottom: -20px !important;
+  padding-bottom: 20px !important;
+}

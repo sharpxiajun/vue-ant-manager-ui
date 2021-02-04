@@ -9,7 +9,9 @@ export default {
   path: '/antvG2',
   name: 'antvG2',
   meta: {
-    name: '图表-AntV-G2'
+    name: '图表-AntV-G2',
+    icon: 'icon-dianzibiaoge',
+    active: 'shadow-green'
   },
   component: WrapperView,
   children: [
@@ -17,7 +19,9 @@ export default {
       path: '/antvG2/antvBar',
       name: 'antvBar',
       meta: {
-        name: '柱状图'
+        name: '柱状图',
+        icon: 'icon-dianzibiaoge',
+        active: 'shadow-green'
       },
       component: antvBar
     },
@@ -25,7 +29,9 @@ export default {
       path: '/antvG2/antvLine',
       name: 'antvLine',
       meta: {
-        name: '折线图'
+        name: '折线图',
+        icon: 'icon-dianzibiaoge',
+        active: 'shadow-green'
       },
       component: antvLine      
     },
@@ -33,7 +39,9 @@ export default {
       path: '/antvG2/antvMap',
       name: 'antvMap',
       meta: {
-        name: '统计地图'
+        name: '统计地图',
+        icon: 'icon-dianzibiaoge',
+        active: 'shadow-green'
       },
       component: antvMap      
     },
@@ -41,7 +49,9 @@ export default {
       path: '/antvG2/antvPie',
       name: 'antvPie',
       meta: {
-        name: '饼状图'
+        name: '饼状图',
+        icon: 'icon-dianzibiaoge',
+        active: 'shadow-green'
       },
       component: antvPie      
     }

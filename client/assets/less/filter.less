@@ -1,0 +1,25 @@
+.filter {
+  .@{ant-prefix}-form {
+    // margin-top: 10px;
+    &-item {
+      margin-bottom: 0;
+    }
+    .filter-item {
+      .@{ant-prefix}-btn-icon-only {
+        display: none;
+      }
+      &:hover {
+        .@{ant-prefix}-btn-icon-only {
+          display: block;
+        }
+      }
+    }
+  }
+  .filter-tabs {
+    display: flex;
+    .@{ant-prefix}-radio-button-wrapper {
+      flex: 1;
+      text-align: center;
+    }
+  }
+}

@@ -1,3 +1,9 @@
+/*
+ * @Author: sharpxiajun 
+ * @Date: 2021-02-03 14:42:10 
+ * @Last Modified by:   sharpxiajun 
+ * @Last Modified time: 2021-02-03 14:42:10 
+ */
 module.exports = {
   IS_PROD: process.env.NODE_ENV === 'production',
   // 一般情况下不建议使用cdn，毕竟是公网的资源。。。

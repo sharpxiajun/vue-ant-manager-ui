@@ -2,24 +2,40 @@
  * @Author: sharpxiajun 
  * @Date: 2020-11-20 20:03:42 
  * @Last Modified by: sharpxiajun
- * @Last Modified time: 2020-11-24 10:20:18
+ * @Last Modified time: 2021-02-03 17:38:07
  */
+require('babel-register')({
+  presets: [
+    [
+      'env',
+      {
+        targets: {
+          node: 'current'
+        }
+      }
+    ]
+  ]
+})
+
 const {
   chainWebpack,
-  styleVars,
-  config
+  optimization,
+  configureWebpack,
+  config,
+  styleVars
 } = require('./build/')
-
-const { IS_PROD } = config
+const fcfg = require('./client/config/').default
+const { IS_PROD, cdnOpt } = config
 
 const path = require('path')
+const getcsspath = filename => path.resolve(__dirname, `./client/assets/less/${filename}.less`)
 
 module.exports = {
-  outputDir: process.env.outputDir,
+  outputDir: './server/dist',
   // 如果你不需要使用eslint，把lintOnSave设为false即可
   lintOnSave: !IS_PROD,
   // 设为false打包时不生成.map文件
-  // productionSourceMap: false,
+  productionSourceMap: false,
   devServer: {
     port: 28080,
     useLocalIp: true,
@@ -27,10 +43,39 @@ module.exports = {
     overlay: {
       warnings: true,
       errors: true
-    }
+    },
+    proxy: fcfg.proxy
   },
+  // 标签上启用 Subresource Integrity, 提供CDN额外的安全性
+  integrity: cdnOpt.need,
   chainWebpack(config) {
+    // 删除预加载
+    // config.plugins.delete('preload');
+    // config.plugins.delete('prefetch')
     chainWebpack(config)
+  },
+  configureWebpack(config) {
+    config.entry.app = './client/main.js'
+    if (cdnOpt.need && IS_PROD) {
+      config.externals = cdnOpt.externals
+    }
+    configureWebpack(config)
+    return {
+      optimization,
+      resolve: { extensions: ['.ts', '.tsx', '.js', '.json'] },
+      module: {
+        rules: [
+          {
+            test: /\.tsx?$/,
+            loader: 'ts-loader',
+            exclude: /node_modules/,
+            options: {
+              appendTsSuffixTo: [/\.vue$/]
+            }
+          }         
+        ]
+      }
+    }
   },
   css: {
     loaderOptions: {
@@ -44,7 +89,9 @@ module.exports = {
     'style-resources-loader': {
       preProcessor: 'less',
       patterns: [
-        path.resolve(__dirname, './node_modules/ant-design-vue/es/style/themes/default.less')
+        getcsspath('var'),
+        getcsspath('mixins')
+        // path.resolve(__dirname, './node_modules/ant-design-vue/es/style/themes/default.less')
       ]
     }
   }
