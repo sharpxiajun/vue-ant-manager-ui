@@ -2,7 +2,7 @@
  * @Author: sharpxiajun 
  * @Date: 2020-11-20 20:04:50 
  * @Last Modified by: sharpxiajun
- * @Last Modified time: 2021-02-04 15:57:16
+ * @Last Modified time: 2021-02-05 13:57:45
  */
 import Vue from 'vue'
 import './regsiter-components'

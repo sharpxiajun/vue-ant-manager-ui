@@ -1,7 +1,7 @@
 const WrapperView = {render: c => c('router-view')}
 
-const g6Simple = _ => import('@/views/antvG6/simple.vue')
-const g6Tree = _ => import('@/views/antvG6/tree.vue')
+const g6Basic = _ => import('@/views/antv-g6/basic.vue')
+const g6Tree = _ => import('@/views/antv-g6/tree.vue')
 
 export default {
   path: '/antvG6',
@@ -14,14 +14,14 @@ export default {
   component: WrapperView,
   children: [
     {
-      path: '/antvG6/g6Simple',
-      name: 'g6Simple',
+      path: '/antvG6/g6basic',
+      name: 'g6basic',
       meta: {
-        name: '一般关系图',
+        name: '基础关系图',
         icon: 'icon-shujuji',
         active: 'shadow-purple'
       },
-      component: g6Simple      
+      component: g6Basic      
     },
     {
       path: '/antvG6/g6Tree',

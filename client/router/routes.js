@@ -2,11 +2,11 @@
  * @Author: sharpxiajun 
  * @Date: 2021-02-04 14:21:00 
  * @Last Modified by: sharpxiajun
- * @Last Modified time: 2021-02-04 14:21:27
+ * @Last Modified time: 2021-02-05 11:07:54
  */
 import adus from './adus'
 import antvG2 from './antvG2'
-import antvG6 from './antvG6'
+import antvG6 from './antv-g6'
 
 const Layout = _ => import('@/views/layout/index.vue')
 const Home = _ => import('@/views/home/index.vue')

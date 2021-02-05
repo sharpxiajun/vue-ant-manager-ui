@@ -2,7 +2,7 @@
  * @Author: sharpxiajun 
  * @Date: 2020-11-20 20:05:00 
  * @Last Modified by: sharpxiajun
- * @Last Modified time: 2021-02-05 09:15:28
+ * @Last Modified time: 2021-02-05 13:47:10
  */
 import Vue from 'vue'
 import VueLazyload from 'vue-lazyload'
@@ -14,7 +14,8 @@ import {
   Icon,
   Tooltip,
   Button,
-  Card
+  Card,
+  Radio
 } from 'ant-design-vue'
 
 const fontsUrl = require('./fonts')
@@ -34,6 +35,7 @@ Vue.use(Icon)
 Vue.use(Tooltip)
 Vue.use(Card)
 Vue.use(Button)
+Vue.use(Radio)
 
 Vue.use(VueLazyload, {
   preLoad: 1.3,
