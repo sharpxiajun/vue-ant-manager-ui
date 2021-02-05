@@ -8,3 +8,12 @@ export const getUserinfo = (data = {}) => {
     params: data
   })  
 }
+
+// 获取项目列表
+export const getProjectList = (data = {}) => {
+  return fetch({
+    url: '/getProjectList',
+    method: 'get',
+    params: data
+  })
+}

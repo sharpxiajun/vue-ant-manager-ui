@@ -3,7 +3,7 @@
   "version": "0.1.0",
   "private": true,
   "scripts": {
-    "start": "concurrently \"npm run server\"",
+    "start": "concurrently \"npm run dev\"",
     "dev": "nodemon --watch vue.config.js --watch ./build/* --exec vue-cli-service serve",
     "dev-server": "cross-env NODE_ENV=development nodemon --harmony server/app.js",
     "build": "vue-cli-service build",

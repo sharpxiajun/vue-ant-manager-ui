@@ -2,7 +2,7 @@
  * @Author: sharpxiajun 
  * @Date: 2021-02-03 17:32:45 
  * @Last Modified by: sharpxiajun
- * @Last Modified time: 2021-02-04 16:15:44
+ * @Last Modified time: 2021-02-04 22:15:39
  */
 const styleVars = require('../../build/style-vars')
 const isDev = process.env.NODE_ENV === 'development',
@@ -12,7 +12,7 @@ const isDev = process.env.NODE_ENV === 'development',
 export default {
   isDev,
   // 项目名称
-  name: 'AntV UI Manager',
+  name: 'AntV Manager',
   homeName: 'home',
   baseurl: isDev ? yapi : productPrefix,
   proxy: {
