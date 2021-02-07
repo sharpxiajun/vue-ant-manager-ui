@@ -2,6 +2,7 @@ const WrapperView = {render: c => c('router-view')}
 
 const g6Basic = _ => import('@/views/antv-g6/basic.vue')
 const g6Tree = _ => import('@/views/antv-g6/tree.vue')
+const topologyEditor = _ => import('@/views/antv-g6/topology-demo.vue')
 
 export default {
   path: '/antvG6',
@@ -32,6 +33,16 @@ export default {
         active: 'shadow-purple'
       },
       component: g6Tree         
+    },
+    {
+      path: 'antvG6/topologyEditor',
+      name: 'topologyEditor',
+      meta: {
+        name: '开发拓扑图',
+        icon: 'icon-shujuji',
+        active: 'shadow-purple'
+      },
+      component: topologyEditor
     }
   ]
 }
