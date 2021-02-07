@@ -37,12 +37,14 @@ export default {
   props: {
     data: {
       type: Object,
-      default: {
-        workspaceName: '亚鸿项目',
-        workspaceType: 1,
-        creator: 'xsharp',
-        owner: 'ACT',
-        memberCnt: '任子行集团'
+      default: () => {
+        return {
+          workspaceName: '亚鸿项目',
+          workspaceType: 1,
+          creator: 'xsharp',
+          owner: 'ACT',
+          memberCnt: '任子行集团'
+        }
       }
     }
   },

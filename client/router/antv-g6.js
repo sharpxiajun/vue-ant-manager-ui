@@ -35,7 +35,7 @@ export default {
       component: g6Tree         
     },
     {
-      path: 'antvG6/topologyEditor',
+      path: '/antvG6/topologyEditor',
       name: 'topologyEditor',
       meta: {
         name: '开发拓扑图',
