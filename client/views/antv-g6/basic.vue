@@ -35,7 +35,8 @@ export default {
       radioList: [
         {label: '快速入门', value: 'basic'},
         {label: '复杂实例', value: 'tutorial'},
-        {label: '图上动画', value: 'animation'}
+        {label: '图上动画', value: 'animation'},
+        {label: 'Combo实例', value: 'combo'}
       ]
     }
   },
@@ -67,6 +68,9 @@ export default {
         case 'animation':
           this.drawAnimation()
           break
+        case 'combo':
+          this.drawCombo()
+          break
       }
       this.render()
     },
@@ -75,6 +79,7 @@ export default {
         this.graph.clear()
         this.graph.destroy()
         this.graph = null
+        this.data = null
       }
     },
     drawAnimation() {
@@ -506,7 +511,120 @@ export default {
         this.graph.setItemState(edgeItem, 'click', true)
       })
     },
+    drawCombo() {
+      const collapseIcon = (x, y, r) => {
+        return [
+          ['M', x - r, y],
+          ['a', r, r, 0, 1, 0, r * 2, 0],
+          ['a', r, r, 0, 1, 0, -r * 2, 0],
+          ['M', x - r + 4, y],
+          ['L', x - r + 2 * r - 4, y],
+        ]
+      }, expandIcon = (x, y, r) => {
+        return [
+          ['M', x - r, y],
+          ['a', r, r, 0, 1, 0, r * 2, 0],
+          ['a', r, r, 0, 1, 0, -r * 2, 0],
+          ['M', x - r + 4, y],
+          ['L', x - r + 2 * r - 4, y],
+          ['M', x - r + r, y - r + 4],
+          ['L', x, y + r - 4],
+        ];
+      }
+      G6.registerCombo(
+        'cCircle',
+        {
+          drawShape: function draw(cfg, group) {
+            const self = this;
+            // Get the shape style, where the style.r corresponds to the R in the Illustration of Built-in Rect Combo
+            const style = self.getShapeStyle(cfg);
+            // Add a circle shape as keyShape which is the same as the extended 'circle' type Combo
+            const circle = group.addShape('circle', {
+              attrs: {
+                ...style,
+                x: 0,
+                y: 0,
+                r: style.r,
+              },
+              draggable: true,
+              name: 'combo-keyShape',
+            });
+            // Add the marker on the bottom
+            const marker = group.addShape('marker', {
+              attrs: {
+                ...style,
+                fill: '#fff',
+                opacity: 1,
+                x: 0,
+                y: style.r,
+                r: 10,
+                symbol: collapseIcon,
+              },
+              draggable: true,
+              name: 'combo-marker-shape',
+            });
+
+            return circle;
+          },
+          // Define the updating logic for the marker
+          afterUpdate: function afterUpdate(cfg, combo) {
+            const self = this;
+            // Get the shape style, where the style.r corresponds to the R in the Illustration of Built-in Rect Combo
+            const style = self.getShapeStyle(cfg);
+            const group = combo.get('group');
+            // Find the marker shape in the graphics group of the Combo
+            const marker = group.find((ele) => ele.get('name') === 'combo-marker-shape');
+            // Update the marker shape
+            marker.attr({
+              x: 0,
+              y: style.r,
+              // The property 'collapsed' in the combo data represents the collapsing state of the Combo
+              // Update the symbol according to 'collapsed'
+              symbol: cfg.collapsed ? expandIcon : collapseIcon,
+            });
+          }
+        },
+        'circle'
+      )
+      this.data = {
+        nodes: [
+          { id: 'node1', x: 250, y: 200, comboId: 'combo1' },
+          { id: 'node2', x: 300, y: 200, comboId: 'combo1' },
+          { id: 'node3', x: 100, y: 200, comboId: 'combo3' },
+        ],
+        combos: [
+          { id: 'combo1', label: 'Combo 1', parentId: 'combo2' },
+          { id: 'combo2', label: 'Combo 2' },
+          { id: 'combo3', label: 'Combo 3', collapsed: true },
+        ],
+      }
+      const grid = new G6.Grid()
+      this.graph = new G6.Graph({
+        container: this.$refs.graphCanvas,
+        width: this.canvasStyle.width,
+        height: this.canvasStyle.height,
+        modes: {
+          default: ['drag-canvas', 'zoom-canvas', 'drag-node', 'drag-combo']
+        },
+        plugins: [grid],
+        groupByTypes: false,
+        defaultCombo: {
+          type: 'cCircle',
+          labelCfg: {
+            refY: 2,
+          }
+        }
+      })
+      this.graph.on('combo:click', (e) => {
+        if (e.target.get('name') === 'combo-marker-shape') {
+          this.graph.collapseExpandCombo(e.item);
+          if (this.graph.get('layout')) this.graph.layout();
+          else this.graph.refreshPositions();
+        }
+      })
+    },
     render() {
+      console.log('this.graph:', this.graph)
       this.graph.data(this.data)
       this.graph.render()
     },
