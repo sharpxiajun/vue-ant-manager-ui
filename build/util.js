@@ -2,7 +2,7 @@
  * @Author: sharpxiajun 
  * @Date: 2021-02-03 14:48:47 
  * @Last Modified by: sharpxiajun
- * @Last Modified time: 2021-02-03 17:22:25
+ * @Last Modified time: 2021-02-07 22:29:29
  */
 const fs = require('fs')
 const path = require('path')
@@ -78,7 +78,7 @@ const recoverFonturl = () => {
   }
 }
 
-// loadFonts()
+loadFonts()
 
 exports.isFile = isFile
 exports.isDirectory = isDirectory
