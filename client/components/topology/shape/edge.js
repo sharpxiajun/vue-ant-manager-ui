@@ -48,25 +48,6 @@ export default function(G6) {
         className: 'edge-shape',
         attrs: shapeStyle
       });
-      const labelCfg = cfg.labelCfg || {};
-      const labelStyle = this.getLabelStyle(cfg, labelCfg, group);
-      const label = group.addShape('text', {
-        attrs: labelStyle
-      });
-      const labelBBox = label.getBBox();
-      group.addShape('rect',{
-        className: 'edge-labelRect',
-        attrs: {
-          x:labelBBox.x-editorStyle.edgeLabelRectPadding/2,
-          y:labelBBox.y-editorStyle.edgeLabelRectPadding/2,
-          width: labelBBox.width+editorStyle.edgeLabelRectPadding,
-          height: labelBBox.height+editorStyle.edgeLabelRectPadding,
-          fill:'#fff',
-          stroke:'#fff',
-        }
-      });
-      group.toBack();
-      label.toFront();
       return shape;
     },
     drawLabel(cfg, group) {

@@ -18,6 +18,12 @@ export function getShapeName(clazz) {
     case 'messageCatch': return 'message-catch-node';
     case 'signalCatch': return 'signal-catch-node';
     case 'subProcess': return 'sub-process-node';
+    case 'netDisk': return 'net-disk';
+    case 'netDisk1': return 'net-disk1';
+    case 'netRack': return 'net-rack';
+    case 'netServer': return 'net-server';
+    case 'netServer1': return 'net-server1';
+    case 'netWorkCard': return 'net-netcard';
     default: return 'task-node';
   }
 }

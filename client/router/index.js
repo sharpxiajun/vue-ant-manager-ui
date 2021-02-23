@@ -2,7 +2,7 @@
  * @Author: sharpxiajun 
  * @Date: 2021-02-04 16:47:57 
  * @Last Modified by: sharpxiajun
- * @Last Modified time: 2021-02-04 17:15:30
+ * @Last Modified time: 2021-02-22 13:36:22
  */
 import Vue from 'vue'
 import Router from 'vue-router'
@@ -19,9 +19,6 @@ const openNewWindow = path => {
 }
 
 const getRouteMap = (routes, map) => {
-  console.warn(routes, '===getRouteMap routes')
-  console.warn(map, '===getRouteMap map')
-  console.groupEnd()
   return routes.reduce((prev, cur) => {
     prev[cur.path] = cur
     if (cur.children) {
@@ -31,9 +28,7 @@ const getRouteMap = (routes, map) => {
   }, map)
 }
 
-console.group('getRouteMap')
 const routesPathMap = getRouteMap(routes, {})
-console.warn(routesPathMap, '====routesPathMap')
 
 // 绑到vue原型上
 Vue.prototype.$routesPathMap = routesPathMap

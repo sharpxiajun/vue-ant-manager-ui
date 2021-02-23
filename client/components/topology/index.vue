@@ -49,12 +49,21 @@ export default {
     }
   },
   watch: {
-    data: {
-      handler(val) {
-      },
-      deep: true,
-      immediate: true
-    }
+    data(oldData, newData){
+      if(oldData !== newData) {
+        if (this.graph) {
+          this.graph.changeData(this.initShape(newData));
+          this.graph.setMode(this.mode);
+          this.graph.emit('canvas:click');
+          if (this.cmdPlugin) {
+            this.cmdPlugin.initPlugin(this.graph);
+          }
+          if (this.isView) {
+            this.graph.fitView(5)
+          }
+        }
+      }
+    },
   },
   computed: {
     canvasStyle() {
@@ -106,7 +115,7 @@ export default {
             'dragPanelItemAddNode','clickSelected','deleteItem','itemAlign','dragPoint','brush-select'],
         },
         defaultEdge: {
-          shape: 'flow-polyline-round'
+          type: 'flow-polyline-round'
         }
       })
       if(this.isView)
@@ -131,12 +140,18 @@ export default {
         return {
           nodes: data.nodes.map(node => {
             return {
-              shape: getShapeName(node.clazz),
+              // shape: getShapeName(node.clazz),
               type: getShapeName(node.clazz),
               ...node,
             }
           }),
-          edges: data.edges
+          // edges: data.edges
+          edges: data.edges.map(edge => {
+            return {
+              label: null,
+              ...edge
+            }
+          })
         }
       }
       return data;
@@ -195,7 +210,7 @@ export default {
     left: 0px;
     width:100%;
     height: 100%;
-    border: 3px green solid;
+    background: #fff;
   }
 }
 </style>

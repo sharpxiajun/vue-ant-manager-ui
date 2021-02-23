@@ -422,11 +422,13 @@ export default function(G6) {
         },
       }
     }),
-  }, 'task-node');
+  }, 'task-node')
+
   G6.registerNode('timer-start-node', {
     options:  deepMix({},startDefaultOptions,{icon: require('../assets/icons/flow/icon_timer.svg')}),
     afterDraw(cfg, group) { this.runAnimate(cfg,group) },
-  }, 'start-node');
+  }, 'start-node')
+
   G6.registerNode('message-start-node', {
     options:  deepMix({},startDefaultOptions,{icon: require('../assets/icons/flow/icon_message.svg')}),
     afterDraw(cfg, group) { this.runAnimate(cfg,group) },
