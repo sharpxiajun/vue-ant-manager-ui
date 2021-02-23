@@ -1,6 +1,7 @@
 <template>
   <div class="topology-editor" :style="canvasStyle">
     <ToolbarPanel ref="toolbar"></ToolbarPanel>
+    <ItemPanel ref="addItemPanel" :height="config.canvasStyle.height - 50"/>
     <div class="topology-editor-canvas" ref="canvas"></div>
   </div>
 </template>
@@ -10,15 +11,17 @@ import { getShapeName } from './utils/clazz'
 import ToolbarPanel from './toolbar-panel.vue'
 import Toolbar from './plugins/toolbar'
 import Command from './plugins/command.js'
+import AddItemPanel from './plugins/addItemPanel'
+import CanvasPanel from './plugins/canvasPanel'
 import registerShape from './shape'
 import registerBehavior from './behavior'
-import edge from './shape/edge'
+import ItemPanel from './item-panel'
 registerShape(G6)
 registerBehavior(G6)
 export default {
   name: 'act-topology-editor',
   components: {
-    ToolbarPanel
+    ToolbarPanel, ItemPanel
   },
   props: {
     isView: {
@@ -75,6 +78,7 @@ export default {
     this.$nextTick(() => {
       this.initGraph()
     })
+    console.warn(':this.$refs[]', this.$refs['addItemPanel'], this.$refs['addItemPanel'].$el)
   },
   destroyed() {
     window.removeEventListener("resize", this.resizeFunc)
@@ -103,11 +107,13 @@ export default {
     initGraph() {
       this.cmdPlugin = new Command()
       const toolbar = new Toolbar({container:this.$refs['toolbar'].$el})
+      const addItemPanel = new AddItemPanel({container:this.$refs['addItemPanel'].$el})
+      const canvasPanel = new CanvasPanel({container:this.$refs['canvas']})
       this.graph = new G6.Graph({
         container: this.$refs['canvas'],
         height: this.config.canvasStyle.height,
         width: this.config.canvasStyle.width,
-        plugins: [this.cmdPlugin, toolbar],
+        plugins: [this.cmdPlugin, toolbar, addItemPanel, canvasPanel],
         modes: {
           default: ['drag-canvas', 'clickSelected'],
           view: [],
@@ -207,8 +213,8 @@ export default {
   &-canvas {
     position: absolute;
     top: 0px;
-    left: 0px;
-    width:100%;
+    left: 10%;
+    width:90%;
     height: 100%;
     background: #fff;
   }

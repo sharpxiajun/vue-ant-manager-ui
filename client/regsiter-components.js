@@ -2,7 +2,7 @@
  * @Author: sharpxiajun 
  * @Date: 2020-11-20 20:05:00 
  * @Last Modified by: sharpxiajun
- * @Last Modified time: 2021-02-05 13:47:10
+ * @Last Modified time: 2021-02-23 10:03:30
  */
 import Vue from 'vue'
 import VueLazyload from 'vue-lazyload'
@@ -15,6 +15,7 @@ import {
   Tooltip,
   Button,
   Card,
+  Collapse,
   Radio
 } from 'ant-design-vue'
 
@@ -34,6 +35,7 @@ Vue.use(Breadcrumb)
 Vue.use(Icon)
 Vue.use(Tooltip)
 Vue.use(Card)
+Vue.use(Collapse)
 Vue.use(Button)
 Vue.use(Radio)
 

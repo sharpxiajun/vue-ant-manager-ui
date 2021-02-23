@@ -32,7 +32,7 @@ export default {
   multiSelectRectStyle: { fill: '#1890FF', fillOpacity: .08, stroke: '#1890FF', opacity: .1 },
   dragNodeHoverToGroupStyle: { stroke: '#1890FF', lineWidth: 2 },
   dragNodeLeaveFromGroupStyle: { stroke: '#BAE7FF', lineWidth: 2 },
-  anchorPointStyle: { r: 3.5, fill: '#fff', stroke: '#1890FF', lineAppendWidth: 12 },
+  anchorPointStyle: { r: 6, fill: '#fff', stroke: '#1890FF', lineAppendWidth: 12 },
   anchorHotsoptStyle: { r: 12, fill: '#1890FF', fillOpacity: .25 },
   anchorHotsoptActivedStyle: { r: 14 },
   anchorPointHoverStyle: { r: 4, fill: '#1890FF', fillOpacity: 1, stroke: '#1890FF' },

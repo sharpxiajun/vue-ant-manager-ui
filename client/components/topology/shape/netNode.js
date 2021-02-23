@@ -89,11 +89,6 @@ export default function(G6) {
     afterDraw(cfg, group) { this.runAnimate(cfg,group) }
   }, 'net-base-node')
 
-  G6.registerNode('net-disk1', {
-    options: deepMix({}, netDefaultOptions, {icon: require('../assets/net/disk-img.png')}),
-    afterDraw(cfg, group) { this.runAnimate(cfg,group) }
-  }, 'net-base-node')
-
   G6.registerNode('net-rack', {
     options: deepMix({}, netDefaultOptions, {icon: require('../assets/net/rack.svg')}),
     afterDraw(cfg, group) { this.runAnimate(cfg,group) }
@@ -113,4 +108,29 @@ export default function(G6) {
     options: deepMix({}, netDefaultOptions, {icon: require('../assets/net/netcard.svg')}),
     afterDraw(cfg, group) { this.runAnimate(cfg,group) }
   }, 'net-base-node')
+
+  G6.registerNode('net-disk1', {
+    options: deepMix({}, netDefaultOptions, {icon: require('../assets/net/disk-img.png')}),
+    afterDraw(cfg, group) { this.runAnimate(cfg,group) }
+  }, 'net-base-node')  
+
+  G6.registerNode('net-rack1', {
+    options: deepMix({}, netDefaultOptions, {icon: require('../assets/net/netRack-img.png')}),
+    afterDraw(cfg, group) { this.runAnimate(cfg,group) }
+  }, 'net-base-node')
+
+  G6.registerNode('net-server3', {
+    options: deepMix({}, netDefaultOptions, {icon: require('../assets/net/server-img.png')}),
+    afterDraw(cfg, group) { this.runAnimate(cfg,group) }
+  }, 'net-base-node')
+
+  G6.registerNode('net-server2', {
+    options: deepMix({}, netDefaultOptions, {icon: require('../assets/net/server1-img.png')}),
+    afterDraw(cfg, group) { this.runAnimate(cfg,group) }
+  }, 'net-base-node')  
+
+  G6.registerNode('net-netcard1', {
+    options: deepMix({}, netDefaultOptions, {icon: require('../assets/net/netcard-img.png')}),
+    afterDraw(cfg, group) { this.runAnimate(cfg,group) }
+  }, 'net-base-node') 
 }

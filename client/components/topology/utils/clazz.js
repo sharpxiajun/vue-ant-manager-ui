@@ -21,9 +21,13 @@ export function getShapeName(clazz) {
     case 'netDisk': return 'net-disk';
     case 'netDisk1': return 'net-disk1';
     case 'netRack': return 'net-rack';
+    case 'netRack1': return 'net-rack1';
     case 'netServer': return 'net-server';
     case 'netServer1': return 'net-server1';
+    case 'netServer3': return 'net-server3';
+    case 'netServer2': return 'net-server2';
     case 'netWorkCard': return 'net-netcard';
+    case 'netWorkCard1': return 'net-netcard1';
     default: return 'task-node';
   }
 }

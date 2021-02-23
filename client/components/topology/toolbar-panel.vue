@@ -106,6 +106,7 @@ export default {
   left: 0px;
   text-align: left;
   width: 100%;
+  height: 50px;
   padding: 8px 0;
   background-color: #fff;
   border: 1px solid #E9E9E9;

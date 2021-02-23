@@ -96,7 +96,7 @@ export default {
       const height = parseFloat(editorStyle.height),
         padTop = parseFloat(editorStyle.paddingTop),
         padBottom = parseFloat(editorStyle.paddingBottom)
-      this.config.canvasStyle.width = width - padLeft - padRight
+      this.config.canvasStyle.width = width - padLeft - padRight 
       this.config.canvasStyle.height = height - padTop - padBottom
     }
   }
