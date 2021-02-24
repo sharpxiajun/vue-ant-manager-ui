@@ -3,25 +3,40 @@
     <ToolbarPanel ref="toolbar"></ToolbarPanel>
     <ItemPanel ref="addItemPanel" :height="config.canvasStyle.height - 50"/>
     <div class="topology-editor-canvas" ref="canvas"></div>
+    <DetailPanel ref="detailPanel"
+                  v-if="!isView"
+                  :height="config.canvasStyle.height - 50"
+                  :model="selectedModel"
+                  :readOnly="mode !== 'edit'"
+                  :signalDefs="processModel.signalDefs"
+                  :messageDefs="processModel.messageDefs"
+                  :onChange="(key,val)=>{onItemCfgChange(key,val)}" />
   </div>
 </template>
 <script>
 import G6 from '@antv/g6'
 import { getShapeName } from './utils/clazz'
-import ToolbarPanel from './toolbar-panel.vue'
+import ToolbarPanel from './components/toolbar-panel.vue'
 import Toolbar from './plugins/toolbar'
 import Command from './plugins/command.js'
 import AddItemPanel from './plugins/addItemPanel'
 import CanvasPanel from './plugins/canvasPanel'
 import registerShape from './shape'
 import registerBehavior from './behavior'
-import ItemPanel from './item-panel'
+import ItemPanel from './components/item-panel'
+import i18n from './locales'
+import DetailPanel from './components/detail-panel'
 registerShape(G6)
 registerBehavior(G6)
 export default {
   name: 'act-topology-editor',
+  provide() {
+    return {
+      i18n: i18n[this.lang]
+    }
+  },  
   components: {
-    ToolbarPanel, ItemPanel
+    ToolbarPanel, ItemPanel, DetailPanel
   },
   props: {
     isView: {
@@ -32,6 +47,10 @@ export default {
       type: String,
       default: "edit"
     },
+    lang: {
+      type: String,
+      default: "zh"
+    },    
     config: {
       type: Object,
       default: () => {
@@ -146,22 +165,39 @@ export default {
         return {
           nodes: data.nodes.map(node => {
             return {
-              // shape: getShapeName(node.clazz),
+              shape: getShapeName(node.clazz),
               type: getShapeName(node.clazz),
               ...node,
             }
           }),
-          // edges: data.edges
-          edges: data.edges.map(edge => {
-            return {
-              label: null,
-              ...edge
-            }
-          })
+          edges: data.edges
         }
       }
       return data;
     },
+    onItemCfgChange(key,value) {
+      console.warn('this.graph:', this.graph)
+      const items = this.graph.get('selectedItems')
+      if(items && items.length > 0) {
+        let item = this.graph.findById(items[0])
+        if(!item){
+          item = this.getNodeInSubProcess(items[0])
+        }
+        if(this.graph.executeCommand) {
+          this.graph.executeCommand('update', {
+            itemId: items[0],
+            updateModel: {[key]: value}
+          })
+        } else {
+          this.graph.updateItem(item, {[key]: value})
+        }
+        this.selectedModel = {...item.getModel()}
+      } else {
+        const canvasModel = { ...this.processModel, [key]: value}
+        this.selectedModel = canvasModel
+        this.processModel = canvasModel
+      }
+    },    
     initEvents(){
       this.graph.on('afteritemselected',(items)=>{
         if(items && items.length > 0) {
@@ -197,7 +233,7 @@ export default {
         } else {
           return false;
         }
-      });
+      })
       if(subProcess) {
         const group = subProcess.getContainer();
         return group.getItem(subProcess, itemId);

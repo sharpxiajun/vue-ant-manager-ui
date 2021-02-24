@@ -2,7 +2,7 @@
  * @Author: sharpxiajun 
  * @Date: 2020-11-20 20:05:00 
  * @Last Modified by: sharpxiajun
- * @Last Modified time: 2021-02-23 10:03:30
+ * @Last Modified time: 2021-02-24 09:09:57
  */
 import Vue from 'vue'
 import VueLazyload from 'vue-lazyload'
@@ -16,7 +16,12 @@ import {
   Button,
   Card,
   Collapse,
-  Radio
+  Radio,
+  Checkbox,
+  Input,
+  InputNumber, 
+  DatePicker, 
+  Select
 } from 'ant-design-vue'
 
 const fontsUrl = require('./fonts')
@@ -36,8 +41,13 @@ Vue.use(Icon)
 Vue.use(Tooltip)
 Vue.use(Card)
 Vue.use(Collapse)
+Vue.use(Checkbox)
 Vue.use(Button)
 Vue.use(Radio)
+Vue.use(Input)
+Vue.use(InputNumber)
+Vue.use(Select)
+Vue.use(DatePicker)
 
 Vue.use(VueLazyload, {
   preLoad: 1.3,
