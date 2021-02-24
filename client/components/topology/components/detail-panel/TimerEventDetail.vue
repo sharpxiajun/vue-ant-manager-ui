@@ -10,7 +10,7 @@
                           :rows="4"
                           :disabled="readOnly"
                           :value="model.cycle"
-                          @input="(value) => {onChange('cycle', value)}" />
+                          @change="(value) => {onChange('cycle', value)}" />
             </div>
             <div class="panelRow">
                 <div>{{i18n['timerEvent.duration']}}：</div>
@@ -19,7 +19,7 @@
                           :rows="4"
                           :disabled="readOnly"
                           :value="model.duration"
-                          @input="(value) => {onChange('duration', value)}" />
+                          @change="(value) => {onChange('duration', value)}" />
             </div>
         </div>
     </div>

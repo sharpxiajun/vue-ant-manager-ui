@@ -8,7 +8,7 @@
                 <a-input style="width:90%; font-size:12px"
                           :disabled="readOnly"
                           :value="model.javaClass"
-                          @input="(value) => {onChange('javaClass', value)}" />
+                          @change="(value) => {onChange('javaClass', value)}" />
             </div>
         </div>
     </div>

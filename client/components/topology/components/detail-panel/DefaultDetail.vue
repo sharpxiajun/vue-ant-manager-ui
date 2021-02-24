@@ -5,12 +5,12 @@
             <a-input style="width:90%; font-size:12px"
                       :disabled="readOnly"
                       :value="model.label"
-                      @input="(value) => {onChange('label', value)}" />
+                      @change="(value) => {onChange('label', value)}" />
         </div>
         <div class="panelRow">
             <a-checkbox @change="(value) => onChange('hideIcon', value)"
                          :disabled="readOnly"
-                         :value="!!model.hideIcon">{{i18n['hideIcon']}}</a-checkbox>
+                         :checked="!!model.hideIcon">{{i18n['hideIcon']}}</a-checkbox>
         </div>
     </div>
 </template>

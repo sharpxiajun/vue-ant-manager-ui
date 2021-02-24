@@ -66,12 +66,12 @@
                                 :disabled="readOnly"
                                 :value="model.dueDate"
                                 value-format="yyyy-MM-dd HH:mm:ss"
-                                @input="(value) => onChange('dueDate', value)" />
+                                @change="(value) => onChange('dueDate', value)" />
             </div>
             <div class="panelRow">
                 <a-checkbox @change="(value) => onChange('isSequential', value)"
                              :disabled="readOnly"
-                             :value="!!model.isSequential">{{i18n['userTask.counterSign']}}</a-checkbox>
+                             :checked="!!model.isSequential">{{i18n['userTask.counterSign']}}</a-checkbox>
             </div>
         </div>
     </div>

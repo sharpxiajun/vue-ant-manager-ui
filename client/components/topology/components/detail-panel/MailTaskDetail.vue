@@ -8,14 +8,14 @@
                 <a-input style="width:90%; font-size:12px"
                           :disabled="readOnly"
                           :value="model.to"
-                          @input="(value) => {onChange('to', value)}" />
+                          @change="(value) => {onChange('to', value)}" />
             </div>
             <div class="panelRow">
                 <div>{{i18n['mailTask.subject']}}：</div>
                 <a-input style="width:90%; font-size:12px"
                           :disabled="readOnly"
                           :value="model.subject"
-                          @input="(value) => {onChange('subject', value)}" />
+                          @change="(value) => {onChange('subject', value)}" />
             </div>
             <div class="panelRow">
                 <div>{{i18n['mailTask.content']}}：</div>
@@ -24,7 +24,7 @@
                           :rows="4"
                           :disabled="readOnly"
                           :value="model.content"
-                          @input="(value) => {onChange('content', value)}" />
+                          @change="(value) => {onChange('content', value)}" />
             </div>
         </div>
     </div>

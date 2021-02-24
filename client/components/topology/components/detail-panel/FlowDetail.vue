@@ -10,19 +10,19 @@
                           :rows="4"
                           :disabled="readOnly"
                           :value="model.conditionExpression"
-                          @input="(value) => {onChange('conditionExpression', value)}" />
+                          @change="(value) => {onChange('conditionExpression', value)}" />
             </div>
             <div class="panelRow">
                 <div>{{i18n['sequenceFlow.seq']}}：</div>
                 <a-input style="width:90%; font-size:12px"
                           :disabled="readOnly"
                           :value="model.seq"
-                          @input="(value) => {onChange('seq', value)}" />
+                          @change="(value) => {onChange('seq', value)}" />
             </div>
             <div class="panelRow">
                 <a-checkbox @change="(value) => onChange('reverse', value)"
                              :disabled="readOnly"
-                             :value="!!model.reverse">{{i18n['sequenceFlow.reverse']}}</a-checkbox>
+                             :checked="!!model.reverse">{{i18n['sequenceFlow.reverse']}}</a-checkbox>
             </div>
         </div>
     </div>

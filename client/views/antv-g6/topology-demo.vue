@@ -1,6 +1,6 @@
 <template>
   <section class="topology-demo" ref="topologyDemo">
-    <Editor :config="config" :data="demoData2"></Editor>
+    <Editor :config="config" :data="demoData1"></Editor>
   </section>
 </template>
 <script>
@@ -47,8 +47,7 @@ export default {
           { id: 'taskNode3', x: 400, y: 450, label: '董事长审批', clazz: 'receiveTask', },
           { id: 'catchNode1', x: 600, y: 200, label: '等待结束', clazz: 'signalCatch', },
           { id: 'endNode', x: 600, y: 320, label: '', clazz: 'end', },
-          { id: 'subProcess', x: 800, y:500, lable: 'subProcess', clazz: 'subProcess'},
-          { id: 'netDisk', x: 600, y:500, label: 'netDisk', clazz: 'netDisk'}
+          { id: 'subProcess', x: 800, y:500, lable: 'subProcess', clazz: 'subProcess'}
           ],
         edges: [{ source: 'startNode1', target: 'taskNode1', sourceAnchor:1, targetAnchor:3, clazz: 'flow' },
           { source: 'startNode2', target: 'gatewayNode', sourceAnchor:1, targetAnchor:3, clazz: 'flow' },
@@ -58,8 +57,7 @@ export default {
           { source: 'taskNode2', target: 'taskNode1', sourceAnchor:2, targetAnchor:2, clazz: 'flow' },
           { source: 'gatewayNode', target: 'taskNode3', sourceAnchor:2, targetAnchor:0, clazz: 'flow' },
           { source: 'gatewayNode', target: 'endNode', sourceAnchor:1, targetAnchor:2, clazz: 'flow'},
-          { source: 'taskNode3', target: 'endNode', sourceAnchor:1, targetAnchor:1, clazz: 'flow' },
-          { source: 'catchNode1', target: 'endNode', sourceAnchor:1, targetAnchor:0, clazz: 'flow' }]
+          { source: 'taskNode3', target: 'endNode', sourceAnchor:1, targetAnchor:1, clazz: 'flow' }]
       },
       demoData2: {
         nodes: [

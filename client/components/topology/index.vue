@@ -3,14 +3,17 @@
     <ToolbarPanel ref="toolbar"></ToolbarPanel>
     <ItemPanel ref="addItemPanel" :height="config.canvasStyle.height - 50"/>
     <div class="topology-editor-canvas" ref="canvas"></div>
-    <DetailPanel ref="detailPanel"
-                  v-if="!isView"
-                  :height="config.canvasStyle.height - 50"
-                  :model="selectedModel"
-                  :readOnly="mode !== 'edit'"
-                  :signalDefs="processModel.signalDefs"
-                  :messageDefs="processModel.messageDefs"
-                  :onChange="(key,val)=>{onItemCfgChange(key,val)}" />
+      <DetailPanel ref="detailPanel"
+                   v-if="!isView"
+                   :height="height"
+                   :model="selectedModel"
+                   :readOnly="mode !== 'edit'"
+                   :users="users"
+                   :groups="groups"
+                   :categorys="categorys"
+                   :signalDefs="processModel.signalDefs"
+                   :messageDefs="processModel.messageDefs"
+                   :onChange="(key,val)=>{onItemCfgChange(key,val)}" />
   </div>
 </template>
 <script>
@@ -68,6 +71,18 @@ export default {
         nodes: [],
         edges: []
       })
+    },
+    users: {
+      type: Array,
+      default: () => ([])
+    },
+    groups: {
+      type: Array,
+      default: () => ([])
+    },
+    categorys: {
+      type: Array,
+      default: () => ([])
     }
   },
   watch: {
